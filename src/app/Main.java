@@ -27,7 +27,7 @@ public class Main {
         sessionfactory = config.buildSessionFactory();
         
         //CREAMOS UN OBJETO
-        Seguro seguro=new Seguro(51, "222145Z" ,"Pepe", "García", "Pérez", 20, 0, Calendar.getInstance().getTime());
+        Seguro seguro=new Seguro(52, "222145Z" ,"Antonia", "García", "Pérez", 20, 0, Calendar.getInstance().getTime());
 
         //CREAR UNA SESION
         Session session=sessionfactory.openSession();
@@ -50,6 +50,7 @@ public class Main {
         //CERRAR CONEXIÓN
         session.getTransaction().commit();
         session.close();
+        sessionfactory.close();
     }
     
 }
