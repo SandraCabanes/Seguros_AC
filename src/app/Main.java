@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package app;
+
 import java.util.Calendar;
+import model.Direccion;
 import model.Seguro;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,37 +22,38 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         SessionFactory sessionfactory;
+        SessionFactory sessionfactory;
         Configuration config = new Configuration();
         config.configure();
         config.addClass(Seguro.class);
         sessionfactory = config.buildSessionFactory();
-        
+
         //CREAMOS UN OBJETO
-        Seguro seguro=new Seguro(52, "222145Z" ,"Antonia", "García", "Pérez", 20, 0, Calendar.getInstance().getTime());
+        Direccion direccion = new Direccion(10, "Calle Reina", 5, "Xàtiva", "Valencia");
+        Seguro seguro = new Seguro(54, "1111A", "Manola", "García", "Pérez", 40, 0, Calendar.getInstance().getTime());
+        seguro.setDireccion(direccion);
 
         //CREAR UNA SESION
-        Session session=sessionfactory.openSession();
+        Session session = sessionfactory.openSession();
         session.beginTransaction();
-        
+
         //GUARDAR OBJETO
         session.save(seguro);
-        
+
         //ACTUALIZAR
-        seguro=new Seguro(51, "11111M" ,"Antonia", "García", "Pérez", 50, 6, Calendar.getInstance().getTime());
+        seguro = new Seguro(51, "11111M", "Antonia", "García", "Pérez", 50, 6, Calendar.getInstance().getTime());
         //session.update(seguro);
-        
+
         //BORRAR
         //session.delete(seguro);
-        
         //LEER
-        Seguro s=(Seguro)session.get(Seguro.class,50);
+        Seguro s = (Seguro) session.get(Seguro.class, 50);
         System.out.println(s);
-        
+
         //CERRAR CONEXIÓN
         session.getTransaction().commit();
         session.close();
         sessionfactory.close();
     }
-    
+
 }

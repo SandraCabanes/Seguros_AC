@@ -20,6 +20,7 @@ public class Seguro {
     private int edad;
     private int numHijos;
     private Date fechaCreacion;
+    private Direccion direccion;
 
     public Seguro() {
     }
@@ -99,10 +100,19 @@ public class Seguro {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+
     @Override
     public String toString() {
-        return "Seguro{" + "idSeguro=" + idSeguro + ", nif=" + nif + ", nombre=" + nombre + ", ape1=" + ape1 + ", ape2=" + ape2 + ", edad=" + edad + ", numHijos=" + numHijos + ", fechaCreacion=" + fechaCreacion + '}';
+        return "Seguro{" + "idSeguro=" + idSeguro + ", nif=" + nif + ", nombre=" + nombre + ", ape1=" + ape1 + ", ape2=" + ape2 + ", edad=" + edad + ", numHijos=" + numHijos + ", fechaCreacion=" + fechaCreacion + ", direccion=" + direccion + '}';
     }
+
     
     
 }
