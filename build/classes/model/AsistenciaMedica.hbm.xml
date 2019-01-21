@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+  <class name="model.AsistenciaMedica" table="asistenciamedica">
+    <id column="IdAsistenciaMedica" name="idAsistenciaMedica" type="integer"/>
+    <property name="breveDescripcion" column="breveDescripcion" type="string"/>
+    <property name="lugar" column="lugar" type="string"/>
+    <property name="explicacion" column="explicacion" type="string"/>
+    <property name="tipoAsistencia" column="TipoAsistencia" type="string"/>
+    <property name="fecha" column="fecha" type="date"/>
+    <property name="hora" column="hora" type="time"/>
+    <property name="importe" column="importe" type="big_decimal"/>
+    
+    <many-to-one name="idSeguro">
+          <column name="IdSeguro"/>
+      </many-to-one>
+  </class>
+</hibernate-mapping>

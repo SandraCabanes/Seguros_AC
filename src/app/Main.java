@@ -6,6 +6,9 @@
 package app;
 
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
+import model.AsistenciaMedica;
 import model.Direccion;
 import model.Seguro;
 import org.hibernate.Session;
@@ -29,9 +32,18 @@ public class Main {
         sessionfactory = config.buildSessionFactory();
 
         //CREAMOS UN OBJETO
-        Direccion direccion = new Direccion(10, "Calle Reina", 5, "Xàtiva", "Valencia");
-        Seguro seguro = new Seguro(54, "1111A", "Manola", "García", "Pérez", 40, 0, Calendar.getInstance().getTime());
-        seguro.setDireccion(direccion);
+        //Direccion direccion = new Direccion(10, "Calle Reina", 5, "Xàtiva", "Valencia");
+        Seguro seguro = new Seguro(311, "12345678Z", "Juan", "Cano", "Morales", 38, 3, Calendar.getInstance().getTime());
+        AsistenciaMedica asistencia1=new AsistenciaMedica(311, "Valencia", "Ir al médico de cabecera por fiebre", "seguro");
+        AsistenciaMedica asistencia2=new AsistenciaMedica(312, "Castellón", "Operación por apendicitis", "seguro");
+        
+        
+        Set<AsistenciaMedica> asistenciaMedica = new HashSet<>();
+        asistenciaMedica.add(asistencia1);
+        asistenciaMedica.add(asistencia2);
+
+        seguro.setAsistenciaMedica(asistenciaMedica);
+        //seguro.setDireccion(direccion);
 
         //CREAR UNA SESION
         Session session = sessionfactory.openSession();

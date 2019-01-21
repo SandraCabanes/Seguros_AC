@@ -12,5 +12,12 @@
         <property name="numHijos" type="integer" />
         <property name="fechaCreacion" type="timestamp" />
         <one-to-one name="direccion" cascade="all"/>
+        
+        <set name="asistenciaMedica" cascade="all" inverse="true">
+            <key>
+                <column name="IdSeguro"/>
+            </key>
+            <one-to-many class="model.AsistenciaMedica"/>
+        </set>
   </class>
 </hibernate-mapping>

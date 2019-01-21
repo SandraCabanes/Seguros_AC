@@ -6,6 +6,7 @@
 package model;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Seguro {
     private int numHijos;
     private Date fechaCreacion;
     private Direccion direccion;
+    private Set<AsistenciaMedica> asistenciaMedica;
 
     public Seguro() {
     }
@@ -108,9 +110,17 @@ public class Seguro {
         this.direccion = direccion;
     }
 
+    public Set<AsistenciaMedica> getAsistenciaMedica() {
+        return asistenciaMedica;
+    }
+
+    public void setAsistenciaMedica(Set<AsistenciaMedica> asistenciaMedica) {
+        this.asistenciaMedica = asistenciaMedica;
+    }
+
     @Override
     public String toString() {
-        return "Seguro{" + "idSeguro=" + idSeguro + ", nif=" + nif + ", nombre=" + nombre + ", ape1=" + ape1 + ", ape2=" + ape2 + ", edad=" + edad + ", numHijos=" + numHijos + ", fechaCreacion=" + fechaCreacion + ", direccion=" + direccion + '}';
+        return "Seguro{" + "idSeguro=" + idSeguro + ", nif=" + nif + ", nombre=" + nombre + ", ape1=" + ape1 + ", ape2=" + ape2 + ", edad=" + edad + ", numHijos=" + numHijos + ", fechaCreacion=" + fechaCreacion + ", direccion=" + direccion + ", asistenciaMedica=" + asistenciaMedica + '}';
     }
 
     
